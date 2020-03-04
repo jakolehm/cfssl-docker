@@ -27,3 +27,25 @@ steps:
       password:
         from_secret: docker_password
       repo: docker.io/jakolehm/cfssl-arm64
+---
+kind: pipeline
+name: manifest
+platform:
+  os: linux
+  arch: amd64
+depends_on:
+  - amd64
+  - arm64
+steps:
+  - name: manifest
+    image: plugins/manifest
+    settings:
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      target: jakolehm/cfssl
+      spec: manifest.tpl
+      platforms:
+        - linux/amd64
+        - linux/arm64
