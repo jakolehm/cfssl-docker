@@ -11,8 +11,7 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      repo: docker.io/jakolehm/cfssl
-      auto_tag_suffix: linux-amd64
+      repo: docker.io/jakolehm/cfssl-amd64
 ---
 kind: pipeline
 name: arm64
@@ -27,5 +26,4 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
-      repo: docker.io/jakolehm/cfssl
-      auto_tag_suffix: linux-arm64
+      repo: docker.io/jakolehm/cfssl-arm64
