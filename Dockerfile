@@ -2,8 +2,8 @@ FROM alpine:latest as build
 
 ARG ARCH=amd64
 
-ADD https://github.com/cloudflare/cfssl/releases/download/v1.4.1/cfssljson_1.4.1_linux_${ARCH} /bin/cfssljson
-ADD https://github.com/cloudflare/cfssl/releases/download/v1.4.1/cfssl_1.4.1_linux_${ARCH} /bin/cfssl
+ADD https://pkg.cfssl.org/R1.2/cfssl_linux-${ARCH} /bin/cfssljson
+ADD https://pkg.cfssl.org/R1.2/cfssl_linux-${ARCH} /bin/cfssl
 
 RUN chmod +x /bin/cfssl*
 
