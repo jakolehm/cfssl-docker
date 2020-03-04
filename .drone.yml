@@ -1,10 +1,10 @@
 kind: pipeline
-name: default
+name: amd64
 platform:
   os: linux
   arch: amd64
 steps:
-  - name: amd64
+  - name: docker
     image: plugins/docker
     settings:
       username:
@@ -13,7 +13,14 @@ steps:
         from_secret: docker_password
       repo: docker.io/jakolehm/cfssl
       auto_tag_suffix: linux-amd64
-  - name: arm64
+---
+kind: pipeline
+name: arm64
+platform:
+  os: linux
+  arch: arm64
+steps:
+  - name: docker
     image: plugins/docker
     settings:
       username:
@@ -22,5 +29,3 @@ steps:
         from_secret: docker_password
       repo: docker.io/jakolehm/cfssl
       auto_tag_suffix: linux-arm64
-      build_args:
-        - ARCH=arm64
