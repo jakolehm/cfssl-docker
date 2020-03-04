@@ -12,8 +12,6 @@ steps:
       from_secret: docker_password
     repo: docker.io/jakolehm/cfssl
     auto_tag_suffix: linux-amd64
-    when:
-      event: tag
   - name: arm64
     image: plugins/docker
     username:
@@ -24,8 +22,6 @@ steps:
     auto_tag_suffix: linux-arm64
     build_args:
       - ARCH=arm64
-    when:
-      event: tag
   - name: manifest
     image: plugins/manifest
     settings:
@@ -39,5 +35,3 @@ steps:
       platforms:
         - linux/amd64
         - linux/arm64
-      when:
-        event: tag
