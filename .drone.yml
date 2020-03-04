@@ -12,6 +12,7 @@ steps:
       password:
         from_secret: docker_password
       repo: docker.io/jakolehm/cfssl-amd64
+      auto_tag: true
 ---
 kind: pipeline
 name: arm64
@@ -27,6 +28,7 @@ steps:
       password:
         from_secret: docker_password
       repo: docker.io/jakolehm/cfssl-arm64
+      auto_tag: true
 ---
 kind: pipeline
 name: manifest
